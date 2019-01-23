@@ -2,6 +2,10 @@
   "name": "city-hall",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.0.0",
+    "npm": "6.4.1"
+  },
   "devDependencies": {
     "react-scripts": "^2.1.3"
   },
