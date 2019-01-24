@@ -15,7 +15,7 @@ class Login extends Component {
     return (
       <div style={styles.loginContainer}>
         <div className="auth-title" style={styles.authTitle}>
-          <h2>Weather App</h2>
+          <h2>Personal Dashboard</h2>
         </div>
         {this.getButtons()}
       </div>
@@ -25,7 +25,6 @@ class Login extends Component {
 
 Login.propTypes = {
   loading: PropTypes.bool.isRequired,
-  onGoogleLoginClick: PropTypes.func.isRequired,
   onLoginClick: PropTypes.func.isRequired
 };
 export default Login;
