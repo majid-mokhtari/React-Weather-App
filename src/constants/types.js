@@ -1,4 +1,5 @@
 export const LOCATION_IS_SET = "LOCATION_IS_SET";
+export const WEATHER_IS_SET = "WEATHER_IS_SET";
 
 export const AUTH_STATE_SUCCESS = "AUTH_STATE_SUCCESS";
 export const USER_LOGGED_OUT = "USER_LOGGED_OUT";

@@ -27,8 +27,7 @@ const App = props => {
 App.propTypes = {
   actions: PropTypes.objectOf(PropTypes.func).isRequired,
   history: PropTypes.object.isRequired,
-  location: PropTypes.objectOf(PropTypes.string).isRequired,
-  sideMenuCollapsed: PropTypes.bool.isRequired
+  location: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default App;

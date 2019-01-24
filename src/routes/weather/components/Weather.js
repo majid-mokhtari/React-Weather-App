@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 
 class Weather extends Component {
+  componentWillMount() {
+    this.props.actions.getWeather();
+  }
   render() {
-    return <h2>Content Here</h2>;
+    const { weather } = this.props;
+    return <div>{weather}</div>;
   }
 }
 

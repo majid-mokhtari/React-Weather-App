@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "react-router";
-import * as actions from "../../auth/actions";
+import * as actions from "../../weather/actions";
 import Weather from "../components/Weather";
 
 const mapDispatchToProps = dispatch => {
