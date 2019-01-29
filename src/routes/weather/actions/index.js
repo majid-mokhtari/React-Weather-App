@@ -20,3 +20,16 @@ export function getWeather () {
       })
   }
 }
+
+export function addTodo () {
+  return dispatch => {
+    axios
+      .post(`${baseUrl}/todos`, { text: 'This is coming from React!' })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        return dispatch(util.onServerError(err))
+      })
+  }
+}
