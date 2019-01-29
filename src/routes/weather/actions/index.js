@@ -3,7 +3,7 @@ import * as util from '../../auth/components/util'
 import * as types from '../../../constants/types'
 
 export const baseUrl =
-  process.env.REACT_APP_PERSONAL_DASH_URL || 'http://localhost:8000'
+  process.env.REACT_APP_PERSONAL_DASH_URL || 'http://localhost:8010'
 
 export function getWeather () {
   return dispatch => {
@@ -27,6 +27,33 @@ export function addTodo () {
       .post(`${baseUrl}/todos`, { text: 'This is coming from React!' })
       .then(res => {
         console.log(res)
+      })
+      .catch(err => {
+        return dispatch(util.onServerError(err))
+      })
+  }
+}
+
+export function getTodos () {
+  return dispatch => {
+    axios
+      .get(`${baseUrl}/todos`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        return dispatch(util.onServerError(err))
+      })
+  }
+}
+
+export function deleteAllTodos () {
+  return dispatch => {
+    axios
+      .delete(`${baseUrl}/todos`)
+      .then(res => {
+        const { data } = res
+        console.log(`${data.n} todo(s) have been deleted`)
       })
       .catch(err => {
         return dispatch(util.onServerError(err))
