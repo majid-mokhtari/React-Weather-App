@@ -26,7 +26,8 @@ export function addTodo () {
     axios
       .post(`${baseUrl}/todos`, { text: 'This is coming from React!' })
       .then(res => {
-        console.log(res)
+        const { data } = res
+        console.log('Todo created: ', data)
       })
       .catch(err => {
         return dispatch(util.onServerError(err))
@@ -39,7 +40,8 @@ export function getTodos () {
     axios
       .get(`${baseUrl}/todos`)
       .then(res => {
-        console.log(res)
+        const { data } = res
+        console.log('List of todos: ', data)
       })
       .catch(err => {
         return dispatch(util.onServerError(err))

@@ -5,7 +5,7 @@ class Weather extends Component {
     this.props.actions.getWeather()
     this.props.actions.addTodo()
     this.props.actions.getTodos()
-    this.props.actions.deleteAllTodos()
+    // this.props.actions.deleteAllTodos()
   }
   render () {
     const { weather } = this.props
