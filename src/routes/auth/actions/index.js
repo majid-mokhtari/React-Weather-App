@@ -25,8 +25,8 @@ export function signUpRequest (request) {
       .then(res => {
         return dispatch(userLoggedIn(res))
       })
-      .catch(err => {
-        return dispatch(util.onServerError(err))
+      .catch(({ response }) => {
+        return dispatch(util.onServerError(response))
       })
   }
 }

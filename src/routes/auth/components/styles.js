@@ -72,6 +72,7 @@ export default {
   authError: {
     fontSize: '15px',
     fontWeight: '400',
-    color: '#dc5f5f'
+    color: '#dc5f5f',
+    textAlign: 'center'
   }
 }
