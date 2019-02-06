@@ -20,24 +20,27 @@ class Login extends Component {
   getButtons () {
     const { email, password } = this.state
     return (
-      <div style={styles.loginButtons}>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor='email'>Email: </label>
+      <form onSubmit={this.handleSubmit} style={styles.loginForm}>
+        <div style={styles.formItem}>
+          <label htmlFor='email'>Email </label>
           <input
             id='email'
             type='text'
             value={email}
             onChange={e => this.setState({ email: e.target.value })}
           />
-          <label htmlFor='password'>Passowrd: </label>
+        </div>
+        <div style={styles.formItem}>
+          <label htmlFor='password'>Passowrd </label>
           <input
             type='password'
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />
-          <input type='submit' value='Login' />
-        </form>
-      </div>
+        </div>
+        <span style={styles.forgotPass}>Forgot Password</span>
+        <input type='submit' value='Login' style={styles.loginBtn} />
+      </form>
     )
   }
 
