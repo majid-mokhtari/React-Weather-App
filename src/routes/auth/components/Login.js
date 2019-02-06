@@ -35,6 +35,7 @@ class Login extends Component {
             type='text'
             value={email}
             onChange={e => this.setState({ email: e.target.value })}
+            style={styles.formInput}
           />
         </div>
         <div style={styles.formItem}>
@@ -43,6 +44,7 @@ class Login extends Component {
             type='password'
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
+            style={styles.formInput}
           />
         </div>
         <span style={styles.forgotPass}>Forgot Password?</span>

@@ -36,17 +36,30 @@ export default {
     justifyContent: 'space-between',
     height: '80px'
   },
+  formInput: {
+    height: '30px',
+    borderRadius: '5px',
+    fontSize: '20px',
+    outline: 'none',
+    padding: '10px'
+  },
   loginBtn: {
     height: '50px',
     background: '#4c7bd9',
     color: '#fff',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    borderRadius: '5px',
+    fontSize: '20px',
+    outline: 'none'
   },
   signUpBtn: {
     height: '50px',
     background: '#fff',
     color: '#4c7bd9',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    borderRadius: '5px',
+    fontSize: '20px',
+    outline: 'none'
   },
   forgotPass: {
     textAlign: 'center',
