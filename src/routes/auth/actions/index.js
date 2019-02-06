@@ -18,6 +18,19 @@ export function loginRequest (request) {
   }
 }
 
+export function signUpRequest (request) {
+  return dispatch => {
+    axios
+      .post(`${baseUrl}/users/signup`, request)
+      .then(res => {
+        return dispatch(userLoggedIn(res))
+      })
+      .catch(err => {
+        return dispatch(util.onServerError(err))
+      })
+  }
+}
+
 export function logoutUser () {
   const token = util.getCurrentUser()
   const headers = { token }

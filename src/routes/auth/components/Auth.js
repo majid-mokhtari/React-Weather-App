@@ -11,6 +11,7 @@ class Auth extends Component {
       loading: false
     }
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleSignUp = this.handleSignUp.bind(this)
   }
 
   componentWillMount () {
@@ -32,11 +33,20 @@ class Auth extends Component {
     actions.loginRequest(values)
   }
 
+  handleSignUp (values) {
+    const { actions } = this.props
+    actions.signUpRequest(values)
+  }
+
   render () {
     const { loading } = this.state
     return (
       <div style={styles.authContainer} className='auth-container'>
-        <Login onLoginClick={this.handleLogin} loading={loading} />
+        <Login
+          onLoginClick={this.handleLogin}
+          onSignUpClick={this.handleSignUp}
+          loading={loading}
+        />
       </div>
     )
   }

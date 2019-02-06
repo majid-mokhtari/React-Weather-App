@@ -28,13 +28,13 @@ export default {
     flexDirection: 'column',
     justifyContent: 'space-around',
     width: '30%',
-    height: '300px'
+    height: '350px'
   },
   formItem: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    height: '70px'
+    height: '80px'
   },
   loginBtn: {
     height: '50px',
@@ -42,11 +42,18 @@ export default {
     color: '#fff',
     cursor: 'pointer'
   },
+  signUpBtn: {
+    height: '50px',
+    background: '#fff',
+    color: '#4c7bd9',
+    cursor: 'pointer'
+  },
   forgotPass: {
     textAlign: 'center',
     marginBottom: '20px',
     fontSize: '15px',
     fontWeight: '400',
-    color: '#4c7bd9'
+    color: '#4c7bd9',
+    cursor: 'pointer'
   }
 }

@@ -9,18 +9,25 @@ class Login extends Component {
       email: '',
       password: ''
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
+    this.handleSignUp = this.handleSignUp.bind(this)
   }
 
-  handleSubmit (event) {
-    event.preventDefault()
+  handleLogin (e) {
+    e.preventDefault()
+    console.log('login')
     this.props.onLoginClick(this.state)
+  }
+
+  handleSignUp (e) {
+    e.preventDefault()
+    this.props.onSignUpClick(this.state)
   }
 
   getButtons () {
     const { email, password } = this.state
     return (
-      <form onSubmit={this.handleSubmit} style={styles.loginForm}>
+      <form style={styles.loginForm}>
         <div style={styles.formItem}>
           <label htmlFor='email'>Email </label>
           <input
@@ -38,8 +45,13 @@ class Login extends Component {
             onChange={e => this.setState({ password: e.target.value })}
           />
         </div>
-        <span style={styles.forgotPass}>Forgot Password</span>
-        <input type='submit' value='Login' style={styles.loginBtn} />
+        <span style={styles.forgotPass}>Forgot Password?</span>
+        <button style={styles.loginBtn} onClick={this.handleLogin}>
+          Login
+        </button>
+        <button style={styles.signUpBtn} onClick={this.handleSignUp}>
+          Sign Up
+        </button>
       </form>
     )
   }
