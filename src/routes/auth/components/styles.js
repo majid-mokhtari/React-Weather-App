@@ -68,5 +68,10 @@ export default {
     fontWeight: '400',
     color: '#4c7bd9',
     cursor: 'pointer'
+  },
+  authError: {
+    fontSize: '15px',
+    fontWeight: '400',
+    color: '#dc5f5f'
   }
 }

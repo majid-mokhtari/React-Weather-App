@@ -2,7 +2,8 @@ import objectAssign from 'object-assign'
 import * as types from '../constants/types'
 
 const initialState = {
-  isLoggedIn: false
+  isLoggedIn: false,
+  authError: ''
 }
 
 export default function auth (state = initialState, action) {
@@ -16,7 +17,12 @@ export default function auth (state = initialState, action) {
     case types.USER_LOGGED_OUT:
       return objectAssign({}, state, {
         isLoggedIn: false,
-        viewState: types.USER_LOGGED_OUT
+        viewState: types.USER_LOGGED_OUT,
+        authError: ''
+      })
+    case types.SERVER_ERROR:
+      return objectAssign({}, state, {
+        authError: action.err
       })
     default:
       return state

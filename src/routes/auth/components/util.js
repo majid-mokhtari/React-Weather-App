@@ -19,10 +19,10 @@ export function logoutUser () {
   Cookies.remove(COOKIE_PATH)
 }
 
-export function onServerError (err) {
-  const { message } = err
+export function onServerError ({ data }) {
+  const { err } = data
   return {
     type: types.SERVER_ERROR,
-    message
+    err
   }
 }

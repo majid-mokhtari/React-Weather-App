@@ -7,9 +7,6 @@ import styles from './styles'
 class Auth extends Component {
   constructor () {
     super()
-    this.state = {
-      loading: false
-    }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
   }
@@ -39,13 +36,12 @@ class Auth extends Component {
   }
 
   render () {
-    const { loading } = this.state
     return (
       <div style={styles.authContainer} className='auth-container'>
         <Login
           onLoginClick={this.handleLogin}
           onSignUpClick={this.handleSignUp}
-          loading={loading}
+          authError={this.props.authError}
         />
       </div>
     )

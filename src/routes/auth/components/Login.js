@@ -15,7 +15,6 @@ class Login extends Component {
 
   handleLogin (e) {
     e.preventDefault()
-    console.log('login')
     this.props.onLoginClick(this.state)
   }
 
@@ -26,6 +25,7 @@ class Login extends Component {
 
   getButtons () {
     const { email, password } = this.state
+    const { authError } = this.props
     return (
       <form style={styles.loginForm}>
         <div style={styles.formItem}>
@@ -48,6 +48,7 @@ class Login extends Component {
           />
         </div>
         <span style={styles.forgotPass}>Forgot Password?</span>
+        <span style={styles.authError}>{authError}</span>
         <button style={styles.loginBtn} onClick={this.handleLogin}>
           Login
         </button>
@@ -71,7 +72,6 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loading: PropTypes.bool.isRequired,
   onLoginClick: PropTypes.func.isRequired
 }
 export default Login
