@@ -13,7 +13,8 @@ export default {
     fontSize: '15px',
     letterSpacing: '1px',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: '100px'
   },
   authTitle: {
     width: '20%',
@@ -36,12 +37,16 @@ export default {
     height: '70px'
   },
   loginBtn: {
-    height: '50px'
+    height: '50px',
+    background: '#4c7bd9',
+    color: '#fff',
+    cursor: 'pointer'
   },
   forgotPass: {
     textAlign: 'center',
     marginBottom: '20px',
     fontSize: '15px',
-    fontWeight: '400'
+    fontWeight: '400',
+    color: '#4c7bd9'
   }
 }

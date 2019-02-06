@@ -8,6 +8,7 @@ input {
     height: 70px;
     border-radius: 5px;
     font-size: 20px;
+    outline: none
 }
 label {
     height: 40px;
