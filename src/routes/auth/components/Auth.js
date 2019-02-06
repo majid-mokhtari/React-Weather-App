@@ -1,51 +1,50 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { getCurrentUser } from "./util";
-import Login from "./Login";
-import styles from "./styles";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { getCurrentUser } from './util'
+import Login from './Login'
+import styles from './styles'
 
 class Auth extends Component {
-  constructor() {
-    super();
+  constructor () {
+    super()
     this.state = {
       loading: false
-    };
-    this.handleLogin = this.handleLogin.bind(this);
+    }
+    this.handleLogin = this.handleLogin.bind(this)
   }
 
-  componentWillMount() {
-    const { history } = this.props;
+  componentWillMount () {
+    const { history } = this.props
     if (getCurrentUser()) {
-      history.push("/app");
-      return;
+      history.push('/app')
     }
   }
 
-  componentWillReceiveProps() {
-    const { history } = this.props;
+  componentWillReceiveProps () {
+    const { history } = this.props
     if (getCurrentUser()) {
-      history.push("/app");
+      history.push('/app')
     }
   }
 
-  handleLogin() {
-    const { actions } = this.props;
-    actions.loginRequest();
+  handleLogin (values) {
+    const { actions } = this.props
+    actions.loginRequest(values)
   }
 
-  render() {
-    const { loading } = this.state;
+  render () {
+    const { loading } = this.state
     return (
-      <div style={styles.authContainer} className="auth-container">
+      <div style={styles.authContainer} className='auth-container'>
         <Login onLoginClick={this.handleLogin} loading={loading} />
       </div>
-    );
+    )
   }
 }
 
 Auth.propTypes = {
   actions: PropTypes.objectOf(PropTypes.func).isRequired,
   history: PropTypes.object.isRequired
-};
+}
 
-export default Auth;
+export default Auth

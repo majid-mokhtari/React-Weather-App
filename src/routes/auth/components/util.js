@@ -1,76 +1,74 @@
-import Cookies from "js.cookie";
-import objectAssign from "object-assign";
-import * as types from "../../../constants/types";
+import Cookies from 'js.cookie'
+import objectAssign from 'object-assign'
+import * as types from '../../../constants/types'
 
-const COOKIE_PATH = "APP_USER";
+const COOKIE_PATH = 'PERSONAL_DASH_USER'
 
-export function getParameterByName(name, url) {
-  const cleanName = name.replace(/[\]]/g, "\\$&");
-  const regex = new RegExp(`[?&]${cleanName}(=([^&#]*)|&|#|$)`);
-  const results = regex.exec(url || window.location.href);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
+export function getParameterByName (name, url) {
+  const cleanName = name.replace(/[\]]/g, '\\$&')
+  const regex = new RegExp(`[?&]${cleanName}(=([^&#]*)|&|#|$)`)
+  const results = regex.exec(url || window.location.href)
+  if (!results) return null
+  if (!results[2]) return ''
+  return decodeURIComponent(results[2].replace(/\+/g, ' '))
 }
 
-export function storeCurrentUser(res) {
-  const { token } = res;
-  Cookies.set(COOKIE_PATH, token);
-  return res;
+export function storeCurrentUser ({ token }) {
+  Cookies.set(COOKIE_PATH, token)
 }
 
-export function getCurrentUser() {
-  const currentUser = Cookies.get(COOKIE_PATH);
+export function getCurrentUser () {
+  const currentUser = Cookies.get(COOKIE_PATH)
   if (currentUser) {
-    return currentUser;
+    return currentUser
   }
-  return null;
+  return null
 }
 
-export function logoutUser() {
-  Cookies.remove(COOKIE_PATH);
+export function logoutUser () {
+  Cookies.remove(COOKIE_PATH)
   return {
     type: types.USER_LOGGED_OUT
-  };
+  }
 }
 
-export function handleAuthResponse(response) {
-  const token = response.headers.get("Authorization");
+export function handleAuthResponse (response) {
+  const token = response.headers.get('Authorization')
   return objectAssign({}, response, {
     token
-  });
+  })
 }
 
-export function handleAuthErrors(response) {
+export function handleAuthErrors (response) {
   if (!response.ok) {
     if (response.status === 401) {
-      Cookies.remove(COOKIE_PATH);
-      //return nav.routeToLogin();
+      Cookies.remove(COOKIE_PATH)
+      // return nav.routeToLogin();
     }
   }
-  return response;
+  return response
 }
 
-export function handleServerErrors(res) {
-  const { status } = res;
-  const { errors, message } = status;
-  if (message && message !== "success" && errors.length) {
-    throw Error(`${message}: ${errors[0].message}`);
+export function handleServerErrors (res) {
+  const { status } = res
+  const { errors, message } = status
+  if (message && message !== 'success' && errors.length) {
+    throw Error(`${message}: ${errors[0].message}`)
   }
-  return res;
+  return res
 }
 
-export function hasError(response) {
+export function hasError (response) {
   return (
     response === null ||
-    (response.is_alert && response.alert_type !== "success")
-  );
+    (response.is_alert && response.alert_type !== 'success')
+  )
 }
 
-export function onServerError(err) {
-  const { message } = err;
+export function onServerError (err) {
+  const { message } = err
   return {
     type: types.SERVER_ERROR,
     message
-  };
+  }
 }

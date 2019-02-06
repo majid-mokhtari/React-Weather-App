@@ -1,31 +1,29 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import styles from "./styles";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styles from './styles'
 
 class HomeHeader extends Component {
-  constructor() {
-    super();
-    this.onLogoutClick = this.onLogoutClick.bind(this);
+  constructor () {
+    super()
+    this.onLogoutClick = this.onLogoutClick.bind(this)
   }
 
-  onLogoutClick({ key }) {
-    if (key === "logout") {
-      const { logoutUser } = this.props;
-      const { origin } = window.location;
-      logoutUser(`${origin}/callback`);
-    }
+  onLogoutClick () {
+    const { logoutUser } = this.props
+    logoutUser()
   }
 
-  render() {
+  render () {
     return (
       <div style={styles.main}>
-        <div style={styles.userDropdown} className="header-dropdown" />
+        <div style={styles.userDropdown} className='header-dropdown' />
+        <span onClick={this.onLogoutClick}>Log Out</span>
       </div>
-    );
+    )
   }
 }
 
 HomeHeader.propTypes = {
   logoutUser: PropTypes.func.isRequired
-};
-export default HomeHeader;
+}
+export default HomeHeader
