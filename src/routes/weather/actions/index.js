@@ -22,9 +22,12 @@ export function getWeather () {
 }
 
 export function addTodo () {
+  const token = util.getCurrentUser()
+  const headers = { token }
+  const data = { text: 'This is coming from React j.com!' }
   return dispatch => {
     axios
-      .post(`${baseUrl}/todos`, { text: 'This is coming from React!' })
+      .post(`${baseUrl}/todos`, data, { headers })
       .then(res => {
         const { data } = res
         console.log('Todo created: ', data)
@@ -36,9 +39,11 @@ export function addTodo () {
 }
 
 export function getTodos () {
+  const token = util.getCurrentUser()
+  const headers = { token }
   return dispatch => {
     axios
-      .get(`${baseUrl}/todos`)
+      .get(`${baseUrl}/todos`, { headers })
       .then(res => {
         const { data } = res
         console.log('List of todos: ', data)
@@ -50,9 +55,11 @@ export function getTodos () {
 }
 
 export function deleteAllTodos () {
+  const token = util.getCurrentUser()
+  const headers = { token }
   return dispatch => {
     axios
-      .delete(`${baseUrl}/todos`)
+      .delete(`${baseUrl}/todos`, { headers })
       .then(res => {
         const { data } = res
         console.log(`${data.n} todo(s) have been deleted`)

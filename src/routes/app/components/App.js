@@ -5,8 +5,12 @@ import Header from './Header'
 import Weather from '../../weather'
 import NotFound from '../../exceptions/NotFound'
 import styles from './styles'
+// import * as util from '../../auth/components/util'
 
 class App extends Component {
+  // componentWillMount () {
+  //   util.logoutUser()
+  // }
   componentWillReceiveProps (nextProps) {
     const { isLoggedIn } = nextProps
     if (!isLoggedIn) {
