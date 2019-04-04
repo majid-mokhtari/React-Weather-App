@@ -1,0 +1,121 @@
+#tic-tac-toe {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: col;
+    flex-wrap: wrap;
+  }
+  #tic-tac-toe .cell{
+    width: 32%;
+    height: 33%;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+  }
+  
+  #start-game {
+    margin: 30px;
+    padding: 10px;
+    width: 50%;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .leftDiagnol {
+      width: 420px;
+      height: 179px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(0px)
+          translateX(5px)
+          rotate(46deg); 
+      position: absolute;
+    z-index: -1
+  }
+  
+  .rightDiagnol {
+      width: 420px;
+      height: 179px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(0px)
+          translateX(-125px)
+          rotate(-46deg); 
+      position: absolute;
+    z-index: -1;
+  }
+  
+  .firstCol{
+      width: 300px;
+      height: 19px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(140px)
+          translateX(-110px)
+          rotate(-90deg); 
+      position: absolute;
+    z-index: -1;
+  }
+  
+  .secondCol{
+      width: 300px;
+      height: 19px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(140px)
+          translateX(-12px)
+          rotate(-90deg); 
+      position: absolute;
+    z-index: -1;
+  }
+  
+  .thirdCol{
+      width: 300px;
+      height: 19px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(140px)
+          translateX(85px)
+          rotate(-90deg); 
+      position: absolute;
+    z-index: -1;
+  }
+  
+  .firstRow{
+      width: 300px;
+      height: 19px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(30px)
+          translateX(-3px)
+          rotate(0deg); 
+      position: absolute;
+    z-index: -1;
+  }
+  
+  .secondRow{
+      width: 300px;
+      height: 19px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(132px)
+          translateX(-3px)
+          rotate(0deg); 
+      position: absolute;
+    z-index: -1;
+  }
+  
+  
+  .thirdRow{
+      width: 300px;
+      height: 19px;
+      border-bottom: 1px solid grey;
+      -webkit-transform:
+          translateY(232px)
+          translateX(-3px)
+          rotate(0deg); 
+      position: absolute;
+    z-index: -1;
+  }
