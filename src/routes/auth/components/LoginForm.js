@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styles from "./styles";
 
 export default function LoginForm(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const email = useFormInput("", "text");
+  const password = useFormInput("", "password");
   const { authError } = props;
 
   function handleLogin(e) {
     e.preventDefault();
-    props.onLoginClick({ email, password });
+    props.onLoginClick({ email: email.value, password: password.value });
   }
 
   function handleSignUp(e) {
@@ -23,25 +23,12 @@ export default function LoginForm(props) {
       </div>
       <form style={styles.loginForm}>
         <div style={styles.formItem}>
-          <label htmlFor="email">Email </label>
-          <input
-            id="email"
-            type="text"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            style={styles.formInput}
-            autoComplete=""
-          />
+          <label>Email </label>
+          <input {...email} />
         </div>
         <div style={styles.formItem}>
-          <label htmlFor="password">Passowrd </label>
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            style={styles.formInput}
-            autoComplete=""
-          />
+          <label>Passowrd </label>
+          <input {...password} />
         </div>
         <span style={styles.forgotPass}>Forgot Password?</span>
         <span style={styles.authError}>{authError}</span>
@@ -54,4 +41,18 @@ export default function LoginForm(props) {
       </form>
     </div>
   );
+}
+
+function useFormInput(initialValue, type) {
+  const [value, setValue] = useState(initialValue);
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+  return {
+    value,
+    onChange: handleChange,
+    style: styles.formInput,
+    autoComplete: "",
+    type
+  };
 }
