@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
-import Auth from '../components/Auth';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../actions";
+import Auth from "../components/Auth";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -16,16 +16,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return {
-    ...stateProps,
-    ...dispatchProps,
-    ...ownProps
-  };
-};
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-  mergeProps
+  mapDispatchToProps
 )(Auth);

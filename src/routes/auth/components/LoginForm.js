@@ -8,12 +8,19 @@ export default function LoginForm(props) {
 
   function handleLogin(e) {
     e.preventDefault();
-    props.onLoginClick({ email: email.value, password: password.value });
+    props.loginRequest(formPayload());
   }
 
   function handleSignUp(e) {
     e.preventDefault();
-    props.onSignUpClick({ email, password });
+    props.signUpRequest(formPayload());
+  }
+
+  function formPayload() {
+    return {
+      email: email.value,
+      password: password.value
+    };
   }
 
   return (
