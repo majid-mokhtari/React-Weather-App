@@ -1,56 +1,56 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { getCurrentUser } from './util'
-import Login from './Login'
-import styles from './styles'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { getCurrentUser } from "./util";
+import LoginForm from "./LoginForm";
+import styles from "./styles";
 
 class Auth extends Component {
-  constructor () {
-    super()
-    this.handleLogin = this.handleLogin.bind(this)
-    this.handleSignUp = this.handleSignUp.bind(this)
+  constructor() {
+    super();
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
   }
 
-  componentWillMount () {
-    const { history } = this.props
+  componentWillMount() {
+    const { history } = this.props;
     if (getCurrentUser()) {
-      history.push('/app')
+      history.push("/app");
     }
   }
 
-  componentWillReceiveProps () {
-    const { history } = this.props
+  componentWillReceiveProps() {
+    const { history } = this.props;
     if (getCurrentUser()) {
-      history.push('/app')
+      history.push("/app");
     }
   }
 
-  handleLogin (values) {
-    const { actions } = this.props
-    actions.loginRequest(values)
+  handleLogin(values) {
+    const { actions } = this.props;
+    actions.loginRequest(values);
   }
 
-  handleSignUp (values) {
-    const { actions } = this.props
-    actions.signUpRequest(values)
+  handleSignUp(values) {
+    const { actions } = this.props;
+    actions.signUpRequest(values);
   }
 
-  render () {
+  render() {
     return (
-      <div style={styles.authContainer} className='auth-container'>
-        <Login
+      <div style={styles.authContainer} className="auth-container">
+        <LoginForm
           onLoginClick={this.handleLogin}
           onSignUpClick={this.handleSignUp}
           authError={this.props.authError}
         />
       </div>
-    )
+    );
   }
 }
 
 Auth.propTypes = {
   actions: PropTypes.objectOf(PropTypes.func).isRequired,
   history: PropTypes.object.isRequired
-}
+};
 
-export default Auth
+export default Auth;
