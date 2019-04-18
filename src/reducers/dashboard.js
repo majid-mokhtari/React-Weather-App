@@ -6,7 +6,7 @@ const initialState = {
   weather: "Loading..."
 };
 
-export default function weather(state = initialState, action) {
+export default function dashboard(state = initialState, action) {
   switch (action.type) {
     case types.LOCATION_IS_SET:
       return objectAssign({}, state, {

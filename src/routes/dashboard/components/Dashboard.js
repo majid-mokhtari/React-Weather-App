@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-class Weather extends Component {
-  componentWillMount () {
-    this.props.actions.getWeather()
-    this.props.actions.getTodos()
+class Dashboard extends Component {
+  componentWillMount() {
+    this.props.actions.getWeather();
+    this.props.actions.getTodos();
   }
-  render () {
-    const { weather } = this.props
+  render() {
+    const { weather } = this.props;
     return (
       <div>
         <button onClick={() => this.props.actions.deleteAllTodos()}>
@@ -17,8 +17,8 @@ class Weather extends Component {
         </button>
         <div>{weather}</div>
       </div>
-    )
+    );
   }
 }
 
-export default Weather
+export default Dashboard;

@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "react-router";
-import * as actions from "../../weather/actions";
-import Weather from "../components/Weather";
+import * as actions from "../actions";
+import Dashboard from "../components/Dashboard";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -11,24 +11,15 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  const { weather } = state;
+  const { dashboard } = state;
   return {
-    ...weather
-  };
-};
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return {
-    ...stateProps,
-    ...dispatchProps,
-    ...ownProps
+    ...dashboard
   };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps,
-    mergeProps
-  )(Weather)
+    mapDispatchToProps
+  )(Dashboard)
 );
