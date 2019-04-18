@@ -3,7 +3,6 @@ import { Switch, Redirect, Route } from "react-router";
 import Header from "./Header";
 import Dashboard from "../../dashboard";
 import NotFound from "../../exceptions/NotFound";
-import { getCurrentUser } from "../../../lib/util.js";
 import styles from "./styles";
 
 //import * as util from "../../auth/components/util";
@@ -12,15 +11,15 @@ import styles from "./styles";
 // }
 
 export default function App(props) {
-  const { history, actions } = props;
+  const { history, actions, isLoggedIn } = props;
   useEffect(() => {
-    if (!getCurrentUser()) {
+    if (!isLoggedIn) {
       history.push("/login");
     }
   });
   return (
     <div style={styles.container}>
-      <div style={{ width: "100%" }}>
+      <div style={styles.content}>
         <Header history={history} logoutUser={actions.logoutUser} />
         <div style={styles.children}>
           <Switch>

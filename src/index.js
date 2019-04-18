@@ -1,20 +1,32 @@
-import React from 'react'
-import { render } from 'react-dom'
-import Root from './containers/Root'
-import { configureStore, history } from './store/configureStore'
-import registerServiceWorker from './registerServiceWorker'
-import 'font-awesome/css/font-awesome.min.css'
-import './index.css'
+import React from "react";
+import { render } from "react-dom";
+import { configureStore, history } from "./store/configureStore";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import registerServiceWorker from "./registerServiceWorker";
+import Routes from "./routes";
+import "font-awesome/css/font-awesome.min.css";
+import "./index.css";
 
-const store = configureStore()
+const store = configureStore();
+
+const Root = ({ store }) => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </Provider>
+  );
+};
 
 render(
   <Root store={store} history={history} />,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);
 
-if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-  window.addEventListener('load', function () {
-    registerServiceWorker()
-  })
+if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
+  window.addEventListener("load", function() {
+    registerServiceWorker();
+  });
 }
