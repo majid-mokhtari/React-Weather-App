@@ -2,6 +2,7 @@ import objectAssign from "object-assign";
 import * as types from "../constants/types";
 
 const initialState = {
+  todos: [],
   location: null,
   weather: "Loading..."
 };
@@ -18,7 +19,16 @@ export default function dashboard(state = initialState, action) {
         viewState: types.WEATHER_IS_SET,
         weather: action.payload
       });
-
+    case types.TODOS_LOADED:
+      return objectAssign({}, state, {
+        viewState: types.TODOS_LOADED,
+        todos: action.payload
+      });
+    case types.TODO_ADDED:
+      return objectAssign({}, state, {
+        viewState: types.TODO_ADDED,
+        todos: action.payload
+      });
     default:
       return state;
   }

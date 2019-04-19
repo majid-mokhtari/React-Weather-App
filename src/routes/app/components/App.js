@@ -3,12 +3,7 @@ import { Switch, Redirect, Route } from "react-router";
 import Header from "./Header";
 import Dashboard from "../../dashboard";
 import NotFound from "../../exceptions/NotFound";
-import styles from "./styles";
-
-//import * as util from "../../auth/components/util";
-// componentWillMount() {
-//   util.logoutUser();
-// }
+import "./styles.css";
 
 export default function App(props) {
   const { history, actions, isLoggedIn } = props;
@@ -18,10 +13,10 @@ export default function App(props) {
     }
   });
   return (
-    <div style={styles.container}>
-      <div style={styles.content}>
+    <div className="container">
+      <div className="content">
         <Header history={history} logoutUser={actions.logoutUser} />
-        <div style={styles.children}>
+        <div className="children">
           <Switch>
             <Redirect exact from="/app" to="/dashboard" />
             <Route path="/dashboard" component={Dashboard} />

@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router";
-import App from "./routes/app";
-import Auth from "./routes/auth";
-import { getCurrentUser } from "./lib/util";
+import App from "./app";
+import Auth from "./auth";
+import { getCurrentUser } from "../lib/util";
 
 function handleAuthentication(props) {
   if (getCurrentUser()) {

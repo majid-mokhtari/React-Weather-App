@@ -1,3 +1,3 @@
-import WeatherContainer from "./containers/DashboardContainer";
+import DashboardContainer from "./containers/DashboardContainer";
 
-export default WeatherContainer;
+export default DashboardContainer;

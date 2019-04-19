@@ -4,7 +4,7 @@ import { configureStore, history } from "./store/configureStore";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import registerServiceWorker from "./registerServiceWorker";
-import Routes from "./routes";
+import Routes from "./routes/index";
 import "font-awesome/css/font-awesome.min.css";
 import "./index.css";
 

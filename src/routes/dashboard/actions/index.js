@@ -29,8 +29,7 @@ export function addTodo() {
     axios
       .post(`${baseUrl}/todos`, data, { headers })
       .then(res => {
-        const { data } = res;
-        console.log("Todo created: ", data);
+        return dispatch(getTodos());
       })
       .catch(err => {
         return dispatch(util.onServerError(err));
@@ -46,7 +45,10 @@ export function getTodos() {
       .get(`${baseUrl}/todos`, { headers })
       .then(res => {
         const { data } = res;
-        console.log("List of todos: ", data);
+        return dispatch({
+          type: types.TODOS_LOADED,
+          payload: data.todos
+        });
       })
       .catch(err => {
         return dispatch(util.onServerError(err));
