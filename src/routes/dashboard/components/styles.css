@@ -1,0 +1,55 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  min-height: 500px;
+}
+
+.todo-list {
+  width: 100%;
+  text-align: center;
+  margin: 50px;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+.todo-completed {
+  width: 5%;
+  height: 30px;
+  cursor: pointer;
+}
+
+.todo-desc {
+  width: 95%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.todo-desc.hidden {
+  display: none;
+}
+.new-todo {
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  margin-left: 44px;
+}
+
+.new-todo-btns {
+  margin-top: 10px;
+}
+
+.todo-item label {
+  text-align: left;
+  cursor: pointer;
+}
+
+.weather {
+  padding: 50px;
+  width: 30%;
+}
