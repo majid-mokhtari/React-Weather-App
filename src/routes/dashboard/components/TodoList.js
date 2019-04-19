@@ -5,7 +5,10 @@ export default function TodoList(props) {
   const [editingIndex, setEditingIndex] = useState(-1);
   const [todos, setTodos] = useState(props.todos);
 
-  function onCompleteTodo(value, todo) {
+  function onCompleteTodo(value, todo, index) {
+    const newTodos = [...todos];
+    newTodos[index].completed = value;
+    setTodos(newTodos);
     const { _id, text } = todo;
     props.actions.updateTodo({ text, completed: value }, _id);
   }
@@ -53,7 +56,7 @@ export default function TodoList(props) {
             <input
               type="checkbox"
               checked={todo.completed}
-              onChange={e => onCompleteTodo(e.target.checked, todo)}
+              onChange={e => onCompleteTodo(e.target.checked, todo, i)}
               className="todo-completed"
             />
             <label
