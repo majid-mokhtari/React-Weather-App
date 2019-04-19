@@ -55,6 +55,21 @@ export function getTodos() {
   };
 }
 
+export function updateTodo(data, id) {
+  const token = util.getCurrentUser();
+  const headers = { token };
+  return dispatch => {
+    axios
+      .put(`${baseUrl}/todos/${id}`, data, { headers })
+      .then(res => {
+        return dispatch(getTodos());
+      })
+      .catch(err => {
+        return dispatch(util.onServerError(err));
+      });
+  };
+}
+
 export function deleteAllTodos() {
   const token = util.getCurrentUser();
   const headers = { token };

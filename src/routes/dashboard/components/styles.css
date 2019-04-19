@@ -49,6 +49,10 @@
   cursor: pointer;
 }
 
+.todo-item label.completed {
+  text-decoration: line-through;
+}
+
 .weather {
   padding: 50px;
   width: 30%;
