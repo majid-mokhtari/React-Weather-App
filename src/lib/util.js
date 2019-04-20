@@ -19,7 +19,10 @@ export function logoutUser() {
   Cookies.remove(COOKIE_PATH);
 }
 
-export function onServerError({ data }) {
+export function onServerError({ data, response }) {
+  if (response.status && response.status === 401) {
+    logoutUser();
+  }
   const { err } = data;
   return {
     type: types.SERVER_ERROR,

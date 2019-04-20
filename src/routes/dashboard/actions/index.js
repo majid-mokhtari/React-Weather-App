@@ -49,8 +49,8 @@ export function getTodos() {
           payload: data.todos
         });
       })
-      .catch(err => {
-        return dispatch(util.onServerError(err));
+      .catch(error => {
+        return dispatch(util.onServerError(error));
       });
   };
 }
