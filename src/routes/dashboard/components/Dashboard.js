@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TodoList from "./TodoList";
 import "./styles.css";
 
 function Dashboard(props) {
-  const { weather, todos } = props;
-  useEffect(() => {
-    props.actions.getTodos();
-    props.actions.getWeather();
-  }, []);
+  const { weather } = props;
   return (
     <div className="dashboard">
-      <TodoList todos={todos} actions={props.actions} />
+      <TodoList {...props} />
       <div className="weather">
         <span>{weather}</span>
       </div>

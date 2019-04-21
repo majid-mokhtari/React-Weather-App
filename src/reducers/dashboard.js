@@ -1,13 +1,7 @@
 import objectAssign from "object-assign";
 import * as types from "../constants/types";
 
-const initialState = {
-  todos: [],
-  location: null,
-  weather: "Loading..."
-};
-
-export default function dashboard(state = initialState, action) {
+export default function dashboard(state = {}, action) {
   switch (action.type) {
     case types.LOCATION_IS_SET:
       return objectAssign({}, state, {

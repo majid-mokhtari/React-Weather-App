@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { useFetch } from "../../../lib/rest";
+import dashboard from "../../../reducers/dashboard";
+export const baseUrl =
+  process.env.REACT_APP_PERSONAL_DASH_URL || "http://localhost:8010";
 
 export default function TodoList(props) {
   const [newTodo, setNewTodo] = useState("");
   const [editingIndex, setEditingIndex] = useState(-1);
-  const [todos, setTodos] = useState(props.todos);
+  const { data, dispatch } = useFetch(
+    "todos",
+    dashboard,
+    {},
+    "TODOS_LOADED",
+    "get"
+  );
+  const [todos, setTodos] = useState(data);
 
   function onCompleteTodo(value, todo, index) {
-    const newTodos = [...todos];
+    const newTodos = [...data];
     newTodos[index].completed = value;
-    setTodos(newTodos);
-    const { _id, text } = todo;
-    props.actions.updateTodo({ text, completed: value }, _id);
+    //setTodos(newTodos);
+    dispatch({
+      payload: newTodos,
+      type: "TODO_ADDED"
+    });
+    // const { _id, text } = todo;
+    // props.actions.updateTodo({ text, completed: value }, _id);
   }
 
   function onTextBlur(value, todo) {
@@ -20,31 +35,42 @@ export default function TodoList(props) {
   }
 
   function onTextChange(value, index) {
-    const newTodos = [...todos];
+    const newTodos = [...data];
     newTodos[index].text = value;
     setTodos(newTodos);
   }
-
-  useEffect(() => {
-    setTodos(props.todos);
-  }, [props.todos]);
 
   function onLabelClick(index) {
     setEditingIndex(index);
   }
 
   function onAddTodoClick() {
-    props.actions.addTodo({ text: newTodo });
+    const newTodos = [...todos];
+    newTodos.push({ text: newTodo, completed: false });
+    //setTodos(newTodos);
     setNewTodo("");
+    dispatch({
+      payload: newTodos,
+      type: "TODO_ADDED"
+    });
   }
 
   function onAddTodoEnter(e) {
     if (e.keyCode === 13) {
-      props.actions.addTodo({ text: e.target.value });
+      const newTodos = [...data, { text: newTodo, completed: false }];
+      //setTodos(newTodos);
+      //props.actions.addTodo({ text: e.target.value });
+      dispatch({
+        payload: newTodos,
+        type: "TODO_ADDED"
+      });
       setNewTodo("");
     }
   }
-
+  console.log(data);
+  useEffect(() => {
+    setTodos(data);
+  }, [data.length]);
   return (
     <div className="todo-list">
       {todos.map((todo, i) => {
