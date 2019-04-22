@@ -20,7 +20,7 @@ export function logoutUser() {
 }
 
 export function onServerError({ data, response }) {
-  if (response.status && response.status === 401) {
+  if (response && response.status === 401) {
     logoutUser();
   }
   const { err } = data;
