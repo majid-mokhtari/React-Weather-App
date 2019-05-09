@@ -15,7 +15,11 @@ export default function App(props) {
   return (
     <div className="container">
       <div className="content">
-        <Header history={history} logoutUser={actions.logoutUser} />
+        <Header
+          history={history}
+          logoutUser={actions.logoutUser}
+          isLoggedIn={isLoggedIn}
+        />
         <div className="children">
           <Switch>
             <Redirect exact from="/app" to="/dashboard" />
