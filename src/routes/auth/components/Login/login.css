@@ -1,0 +1,14 @@
+.login-form {
+  width: 30%;
+  font-size: 15px;
+}
+.login-btn {
+  width: 100%;
+}
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}

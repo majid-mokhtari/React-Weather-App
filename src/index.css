@@ -29,3 +29,7 @@ button[disabled] {
   background-color: #cccccc;
   color: #aaaaaa;
 }
+
+.href {
+  color: #1890ff;
+}

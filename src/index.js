@@ -7,6 +7,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import Routes from "./routes/index";
 import "font-awesome/css/font-awesome.min.css";
 import "./index.css";
+import "antd/dist/antd.css";
 
 const store = configureStore();
 

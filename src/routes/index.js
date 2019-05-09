@@ -15,8 +15,8 @@ function handleAuthentication(props) {
 const Routes = () => {
   return (
     <Switch>
-      <Redirect exact from="/" to="/login" />
-      <Route path="/login" component={Auth} />
+      <Redirect exact from="/" to="/auth" />
+      <Route path="/auth" component={Auth} />
       <Route path="*" component={props => handleAuthentication(props)} />
     </Switch>
   );

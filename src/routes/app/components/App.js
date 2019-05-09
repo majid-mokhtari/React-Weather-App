@@ -9,7 +9,7 @@ export default function App(props) {
   const { history, actions, isLoggedIn } = props;
   useEffect(() => {
     if (!isLoggedIn) {
-      history.push("/login");
+      history.push("/auth");
     }
   });
   return (
