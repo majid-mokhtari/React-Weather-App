@@ -9,7 +9,7 @@ function SignupForm(props) {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        props.actions.loginRequest(values);
+        props.actions.signUpRequest(values);
       }
     });
   }
